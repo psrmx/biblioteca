@@ -27,7 +27,8 @@ public class MainMenuTests {
         // Redirect System.out to buffer
         ByteArrayOutputStream contentOut = new ByteArrayOutputStream();
         System.setOut(new PrintStream(contentOut));
-        menu.chooseAction(1);
+        menu.setReadLine(1);
+        menu.chooseAction();
         // assert
         String expectedOut = "Menu of options: " + "\n" + "(1) List of books" + "\n" + "(2) Quit biblioteca";
         assertThat(contentOut.toString(), is(expectedOut));
@@ -38,7 +39,8 @@ public class MainMenuTests {
         // Redirect System.out to buffer
         ByteArrayOutputStream contentOut = new ByteArrayOutputStream();
         System.setOut(new PrintStream(contentOut));
-        menu.chooseAction(2);
+        menu.setReadLine(2);
+        menu.chooseAction();
 
         String expectedOut = "Goodbye user!";
         assertThat(contentOut.toString(), is(expectedOut));

@@ -4,14 +4,14 @@ import java.util.Scanner;
 
 public class MainMenu {
 
-    Integer readLine;
+    private Integer readLine = 0;
 
     public void printMenu(){
         System.out.println("Menu of options: " + "\n" + "(1) List of books" + "\n" + "(2) Quit biblioteca");
     }
 
-    public void chooseAction(Integer readLine){
-        if (readLine == 1)  {
+    public void chooseAction(){
+        if (this.readLine == 1)  {
             //TODO: remove the ListOfBooks and just pass them to this Class
             ListOfBooks books = new ListOfBooks();
             books.addBook(new Book("B", "Patti", "1989"));
@@ -19,8 +19,9 @@ public class MainMenu {
             books.printBooks();
             getInput();
         }
-        if (readLine == 2){
+        if (this.readLine == 2){
             System.out.println("Goodbye user!");
+            System.exit(0);
         }
         else{
             System.out.println("Please select a valid option!");
@@ -28,12 +29,18 @@ public class MainMenu {
         }
     }
 
-    public void getInput() {
-        Scanner reader = new Scanner(System.in);
+    public Integer getInput() {
         printMenu();
+        Scanner reader = new Scanner(System.in);
         if(reader.hasNextInt()){
-            Integer readLine = reader.nextInt();
-            chooseAction(readLine);
+            readLine = reader.nextInt();
+            setReadLine(readLine);
         }
+        chooseAction();
+        return readLine;
+    }
+
+    public void setReadLine(Integer readLine) {
+        this.readLine = readLine;
     }
 }

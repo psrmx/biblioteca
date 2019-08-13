@@ -2,7 +2,9 @@ package com.twu.biblioteca;
 
 import org.junit.Test;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
 import java.io.PrintStream;
 
 import static org.hamcrest.core.Is.is;
@@ -68,4 +70,17 @@ public class BibliotecaTests {
         String expectedOut = "";
         assertThat(contentOut.toString(), is(expectedOut));
     }
+
+    @Test
+    public void shouldTakeCorrectUserInput() {
+        MainMenu menu= new MainMenu();
+
+        String input = "1";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+
+        assertThat("1", is(menu.getInput()));
+    }
+
+    // TODO: test exception/invalid inputs
 }

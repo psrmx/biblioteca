@@ -27,10 +27,4 @@ public class Book {
     public String toString(){
         return String.format(title + " | " + author + " | " + year);
     }
-
-//    @Override
-//    public String toString(){
-//        return allBooks.forEach.String.format("/n");
-//    }
-
 }

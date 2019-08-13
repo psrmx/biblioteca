@@ -5,6 +5,9 @@ import java.util.Scanner;
 public class MainMenu {
 
     private Integer readLine = 0;
+    public Book a = new Book("A", "Tom", "1999");
+    public Book b = new Book("B", "Patti", "1988");
+    public Book c = new Book("C", "Marta", "2001");
 
     public void printMenu(){
         System.out.println("Menu of options: " + "\n" + "(1) List of books" + "\n" + "(2) Quit biblioteca");
@@ -14,8 +17,11 @@ public class MainMenu {
         if (this.readLine == 1)  {
             //TODO: remove the ListOfBooks and just pass them to this Class
             ListOfBooks books = new ListOfBooks();
-            books.addBook(new Book("B", "Patti", "1989"));
-            books.addBook(new Book("C", "Marta", "2001"));
+
+            books.addBook(a);
+            books.addBook(b);
+            c.setAvailable(false);
+            books.addBook(c);
             books.printBooks();
             getInput();
         }

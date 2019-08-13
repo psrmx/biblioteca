@@ -13,6 +13,10 @@ public class ListOfBooks {
     }
 
     public void printBooks(){
-        allBooks.forEach(System.out::println);
+        allBooks.forEach(b -> {
+            if (b.isAvailable()) {
+                System.out.println(b);
+            }
+        });
     }
 }

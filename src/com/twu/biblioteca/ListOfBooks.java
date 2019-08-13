@@ -1,13 +1,18 @@
 package com.twu.biblioteca;
 
+import java.util.ArrayList;
+import java.util.List;
+
+
 public class ListOfBooks {
 
-    private String[] listOfBooks = new String[]{"A", "B", "C"};
+    public List<Book> allBooks = new ArrayList<Book>();
 
-    public ListOfBooks() {
-        this.listOfBooks = listOfBooks;
+    public void addBook(Book book){
+        allBooks.add(book);
     }
-    public String[] getListOfBooks(){
-        return listOfBooks;
+
+    public void printBooks(){
+        allBooks.forEach(System.out::println);
     }
 }

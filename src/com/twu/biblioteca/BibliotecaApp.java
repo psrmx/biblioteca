@@ -1,7 +1,5 @@
 package com.twu.biblioteca;
 
-import java.util.Arrays;
-
 public class BibliotecaApp {
 
     public static void main(String[] args) {
@@ -9,7 +7,13 @@ public class BibliotecaApp {
        System.out.println(message);
 
        ListOfBooks books = new ListOfBooks();
-       Arrays.stream(books.getListOfBooks()).forEach(System.out::println);
+       books.addBook(new Book("B", "Patti", "1989"));
+       books.addBook(new Book("C", "Marta", "2001"));
+       books.printBooks();
+
+       /*
+       Book b = new Book("A", "Tom", "1999");
+        */
     }
 
 }

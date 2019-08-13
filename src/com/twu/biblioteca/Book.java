@@ -1,7 +1,6 @@
 package com.twu.biblioteca;
 
 public class Book {
-    // TODO: change to private variables and use get methods
     private String title;
     private String author;
     private String year;
@@ -28,5 +27,10 @@ public class Book {
     public String toString(){
         return String.format(title + " | " + author + " | " + year);
     }
+
+//    @Override
+//    public String toString(){
+//        return allBooks.forEach.String.format("/n");
+//    }
 
 }

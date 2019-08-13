@@ -36,12 +36,13 @@ public class MainMenu {
     }
 
     public Integer getInput() {
+        setReadLine(0);
         printMenu();
         Scanner reader = new Scanner(System.in);
         if(reader.hasNextInt()){
             readLine = reader.nextInt();
-            setReadLine(readLine);
         }
+        setReadLine(readLine);
         chooseAction();
         return readLine;
     }

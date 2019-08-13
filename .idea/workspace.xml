@@ -2,16 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8878e9f7-bb70-4b19-8677-ca2a69fcc2f0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/ListOfBooksTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/Book.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/Book.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/ListOfBooks.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/ListOfBooks.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/MainMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/MainMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/biblioteca/com/twu/biblioteca/BibliotecaTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/biblioteca/com/twu/biblioteca/BibliotecaTests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/ListOfBooks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/ListOfBooks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/biblioteca/com/twu/biblioteca/MainMenuTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/biblioteca/com/twu/biblioteca/MainMenuTests.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/MainMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/BibliotecaTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/BibliotecaTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/MainMenuTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/MainMenuTests.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -66,7 +61,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.BibliotecaApp">
+  <component name="RunManager" selected="JUnit.MainMenuTests">
     <configuration name="BibliotecaApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.BibliotecaApp" />
       <module name="biblioteca" />
@@ -90,21 +85,6 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
       <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.BibliotecaTests" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ExampleTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="biblioteca" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.twu.biblioteca.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
-      <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.ExampleTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -140,20 +120,36 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MainMenuTests.shouldTakeCorrectUserInput" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="biblioteca" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.twu.biblioteca.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
+      <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.MainMenuTests" />
+      <option name="METHOD_NAME" value="shouldTakeCorrectUserInput" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="Application.BibliotecaApp" />
-      <item itemvalue="JUnit.BibliotecaTests" />
-      <item itemvalue="JUnit.ExampleTest" />
-      <item itemvalue="JUnit.MainMenuTests" />
       <item itemvalue="JUnit.ListOfBooksTests" />
+      <item itemvalue="JUnit.BibliotecaTests" />
+      <item itemvalue="JUnit.MainMenuTests" />
+      <item itemvalue="JUnit.MainMenuTests.shouldTakeCorrectUserInput" />
+      <item itemvalue="Application.BibliotecaApp" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.BibliotecaApp" />
-        <item itemvalue="JUnit.ListOfBooksTests" />
-        <item itemvalue="JUnit.BibliotecaTests" />
         <item itemvalue="JUnit.MainMenuTests" />
-        <item itemvalue="JUnit.ExampleTest" />
+        <item itemvalue="Application.BibliotecaApp" />
+        <item itemvalue="JUnit.MainMenuTests.shouldTakeCorrectUserInput" />
+        <item itemvalue="JUnit.BibliotecaTests" />
+        <item itemvalue="JUnit.ListOfBooksTests" />
       </list>
     </recent_temporary>
   </component>
@@ -169,6 +165,7 @@
       <updated>1565361362489</updated>
       <workItem from="1565361364722" duration="2422000" />
       <workItem from="1565610607946" duration="6212000" />
+      <workItem from="1565708970328" duration="2810000" />
     </task>
     <servers />
   </component>
@@ -180,10 +177,17 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/biblioteca$MainMenuTests.ic" NAME="MainMenuTests Coverage Results" MODIFIED="1565709008212" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.twu.biblioteca.*</FILTER>
+    </SUITE>
   </component>
 </project>

@@ -23,14 +23,13 @@ public class MainMenuTests {
     }
 
     @Test
-    public void shouldPrintMenuWhenOneIsSelected() {
+    public void shouldPrintMenuOptions() {
         // Redirect System.out to buffer
         ByteArrayOutputStream contentOut = new ByteArrayOutputStream();
         System.setOut(new PrintStream(contentOut));
-        menu.setReadLine(1);
-        menu.chooseAction();
+        menu.printMenu();
         // assert
-        String expectedOut = "Menu of options: " + "\n" + "(1) List of books" + "\n" + "(2) Quit biblioteca";
+        String expectedOut = "Menu of options: " + "\n" + "(1) List of books" + "\n" + "(2) Quit biblioteca"  + "\n";
         assertThat(contentOut.toString(), is(expectedOut));
     }
 
@@ -39,12 +38,16 @@ public class MainMenuTests {
         // Redirect System.out to buffer
         ByteArrayOutputStream contentOut = new ByteArrayOutputStream();
         System.setOut(new PrintStream(contentOut));
-        menu.setReadLine(2);
+        String input = "2";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
         menu.chooseAction();
 
-        String expectedOut = "Goodbye user!";
+
+        String expectedOut = "Menu of options: \n(1) List of books\n(2) Quit biblioteca\nGoodbye user!\n";
         assertThat(contentOut.toString(), is(expectedOut));
     }
 
     // TODO: test exception/invalid inputs
+    // TODO: test runMenu method
 }

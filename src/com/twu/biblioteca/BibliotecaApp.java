@@ -13,7 +13,7 @@ public class BibliotecaApp {
 ////
 
         MainMenu menu = new MainMenu();
-        menu.getInput();
+        menu.runMenu();
     }
 
 }

@@ -5,39 +5,48 @@ import java.util.Scanner;
 public class MainMenu {
 
     private Integer readLine = 0;
+    private Book a = new Book("A", "Tom", "1999");
+    private Book b = new Book("B", "Patti", "1988");
+    private Book c = new Book("C", "Marta", "2001");
 
     public void printMenu(){
         System.out.println("Menu of options: " + "\n" + "(1) List of books" + "\n" + "(2) Quit biblioteca");
     }
 
-    public void chooseAction(){
-        if (this.readLine == 1)  {
-            //TODO: remove the ListOfBooks and just pass them to this Class
-            ListOfBooks books = new ListOfBooks();
-            books.addBook(new Book("B", "Patti", "1989"));
-            books.addBook(new Book("C", "Marta", "2001"));
-            books.printBooks();
-            getInput();
+    public void runMenu() {
+        while (this.readLine != 2) {
+            chooseAction();
         }
-        if (this.readLine == 2){
+        System.exit(0);
+    }
+
+    public void chooseAction(){
+        printMenu();
+        getInput();
+        if (this.readLine == 1)  {
+            ListOfBooks books = new ListOfBooks();
+            books.addBook(this.a);
+            books.addBook(this.b);
+            books.addBook(this.c);
+            books.printBooks();
+        }
+        if(this.readLine == 2){
             System.out.println("Goodbye user!");
-            System.exit(0);
         }
         else{
             System.out.println("Please select a valid option!");
-            getInput();
         }
     }
 
     public Integer getInput() {
-        printMenu();
         Scanner reader = new Scanner(System.in);
         if(reader.hasNextInt()){
-            readLine = reader.nextInt();
-            setReadLine(readLine);
+            setReadLine(reader.nextInt());
         }
-        chooseAction();
-        return readLine;
+        else {
+            setReadLine(0);
+        }
+        return this.readLine;
     }
 
     public void setReadLine(Integer readLine) {

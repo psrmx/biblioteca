@@ -7,11 +7,6 @@ public class BibliotecaApp {
         WelcomeMessage message = new WelcomeMessage();
         System.out.println(message);
 
-//        ListOfBooks books = new ListOfBooks();
-////        books.addBook(new Book("B", "Patti", "1989"));
-////        books.addBook(new Book("C", "Marta", "2001"));
-////
-
         MainMenu menu = new MainMenu();
         menu.runMenu();
     }

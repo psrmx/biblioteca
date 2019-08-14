@@ -4,12 +4,13 @@ public class Book {
     private String title;
     private String author;
     private String year;
-    private Boolean available = true;
+    private Boolean available;
 
-    public Book(String title, String author, String year) {
+    public Book(String title, String author, String year, Boolean available) {
         this.title = title;
         this.author = author;
         this.year = year;
+        this.available = available;
     }
 
     public String getTitle(){

@@ -43,7 +43,6 @@ public class MainMenuTests {
         System.setIn(in);
         menu.chooseAction();
 
-
         String expectedOut = "Menu of options: \n(1) List of books\n(2) Quit biblioteca\nGoodbye user!\n";
         assertThat(contentOut.toString(), is(expectedOut));
     }

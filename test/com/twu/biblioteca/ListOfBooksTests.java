@@ -10,7 +10,7 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 public class ListOfBooksTests {
-    private ListOfBooks books = new ListOfBooks();
+    public ListOfBooks books = new ListOfBooks();
 
     @Test
     public void ShouldPrintAnEmptyListOfBooksWhenInitializedWithNull() throws Exception {
@@ -32,7 +32,13 @@ public class ListOfBooksTests {
         System.setOut(new PrintStream(contentOut));
         books.printBooks();
         // assert
-        String expectedOut = "A | Tom | 1999" + "\n" + "B | Patti | 1988" + "\n";
+        String expectedOut = "\t1. A | Tom | 1999\n\t2. B | Patti | 1988\n";
         assertThat(contentOut.toString(), is(expectedOut));
+    }
+
+    @Test
+    public void ShouldChangeAvailabilityOfCheckedoutBook() {
+        books.checkoutBook(1);
+        assertThat(books.allBooks.get(0).isAvailable(), is(false));
     }
 }

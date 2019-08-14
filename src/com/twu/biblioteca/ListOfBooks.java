@@ -6,7 +6,7 @@ import java.util.List;
 
 public class ListOfBooks {
 
-    private List<Book> allBooks;
+    public List<Book> allBooks;
 
     public ListOfBooks() {
         Book[] allBooks = {
@@ -22,14 +22,22 @@ public class ListOfBooks {
     }
 
         public void addBook(Book book){
-        allBooks.add(book);
+        this.allBooks.add(book);
+    }
+
+    public void checkoutBook(Integer bookIndex){
+        bookIndex -= 1;
+        System.out.println("Thank you! Enjoy the book.");
+        this.allBooks.get(bookIndex).setAvailable(false);
     }
 
     public void printBooks(){
-        allBooks.forEach(b -> {
+        for(Integer i = 0; i < allBooks.size(); i++){
+            Book b = allBooks.get(i);
+            Integer j = i+1;
             if (b.isAvailable()) {
-                System.out.println(b);
+                System.out.println("\t" + j.toString() + ". " + b);
             }
-        });
+        }
     }
 }

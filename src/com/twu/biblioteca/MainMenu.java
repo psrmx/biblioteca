@@ -10,7 +10,7 @@ public class MainMenu {
     private ListOfBooks books = new ListOfBooks();
 
     public void printMenu(){
-        String stringMenu = "Menu of options: \n(1) List of books\n(2) Quit biblioteca\n(3) Checkout a book";
+        String stringMenu = "Menu of options: \n(1) List of books\n(2) Quit biblioteca\n(3) Checkout a book\n(4) Return a book";
         System.out.println(stringMenu);
     }
 
@@ -24,26 +24,26 @@ public class MainMenu {
     public void chooseAction(){
         printMenu();
         getInput();
-        if (this.readLine == 1) {
-            books.printBooks();
-        }
-        else if (this.readLine == 2) {
-            System.out.println("Goodbye user!");
-        }
-        else if (this.readLine == 3) {
-            try {
-                chooseBookToCheckout();
-            } catch (BookInvalidException e) {
-                e.printStackTrace();
-            }
-        }
-        else{
-            System.out.println("Please select a valid option!");
+        switch (this.readLine) {
+            case 1:
+                books.printBooks(true);
+            case 2:
+                try {
+                    System.out.println("Which book do you want to checkout?");
+                    chooseBookFromList();
+                } catch (BookInvalidException e) {
+                    e.printStackTrace();
+                }
+            case 3:
+                // return book
+            case 4:
+                System.out.println("Goodbye user!");
+            default:
+                System.out.println("Please select a valid option!");
         }
     }
 
-    public void chooseBookToCheckout() throws BookInvalidException {
-        System.out.println("Which book do you want to checkout?");
+    public void chooseBookFromList(ListOfBooks books) throws BookInvalidException {
         books.printBooks();
         getInput();
         if (this.readLine < books.allBooks.size() && this.readLine > 0) {
@@ -53,7 +53,6 @@ public class MainMenu {
             throw new BookInvalidException();
         }
     }
-
 
     public Integer getInput() {
         setReadLine(-1);

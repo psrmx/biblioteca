@@ -41,4 +41,10 @@ public class ListOfBooksTests {
         books.checkoutBook(1);
         assertThat(books.allBooks.get(0).isAvailable(), is(false));
     }
+
+    @Test
+    public void ShouldReturnABookWhenValidOptionSelected() {
+        books.returnBook(1);
+        assertThat(books.allBooks.get(0).isAvailable(), is(true));
+    }
 }

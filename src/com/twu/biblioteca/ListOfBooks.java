@@ -1,56 +1,67 @@
 package com.twu.biblioteca;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.ArrayList;
 
 
 public class ListOfBooks {
 
-    public List<Book> allBooks;
+    private ArrayList<Book> inBooks;
+    private ArrayList<Book> outBooks;
 
     public ListOfBooks() {
-        Book[] allBooks = {
-                new Book("A", "Tom", "1999", true),
-                new Book("B", "Patti", "1988", true),
-                new Book("C", "Marta", "2001", false)
-        };
-        this.allBooks = Arrays.asList(allBooks);
+        inBooks = new ArrayList<Book>();
+        outBooks = new ArrayList<Book>();
+        inBooks.add(new Book("A", "Tom", "1999", true));
+        inBooks.add(new Book("B", "Patti", "1988", true));
+//        inBooks.add(new Book("D", "Georg", "2011", true));
+        outBooks.add(new Book("C", "Marta", "2001", false));
     }
 
-    public ListOfBooks(List<Book> allBooks) {
-        this.allBooks = allBooks;
-    }
-
-    public void addBook(Book book) {
-        this.allBooks.add(book);
-    }
-
-    public void checkoutBook(Integer bookIndex) {
-        bookIndex -= 1;
-        this.allBooks.get(bookIndex).setAvailable(false);
-        System.out.println("Thank you! Enjoy the book.");
-    }
-
-    public void returnBook(Integer bookIndex) {
-        bookIndex -= 1;
-        this.allBooks.get(bookIndex).setAvailable(true);
-        System.out.println("Thank you for returning the book.");
-    }
-
-    public void printBooks(ListOfBooks books) {
-        for (Integer i = 0; i < books.allBooks.size(); i++) {
-            Book b = allBooks.get(i);
-            System.out.println("\t" + j.toString() + ". " + b)
-        }
-    }
-
-    public void filterBooks(boolean availability) {
-        for (Integer i = 0; i < allBooks.size(); i++) {
-            Book b = allBooks.get(i);
-            Integer j = i + 1;
-            if (b.isAvailable() == availability) {
-                System.out.println("\t" + j.toString() + ". " + b);
+    public void checkoutBook(String bookTitle) {
+        for (Book book: inBooks) {
+            if (book.getTitle().equals(bookTitle)) {
+                inBooks.remove(book);
+                outBooks.add(book);
+                System.out.println("Thank you! Enjoy the book");
+                return;
             }
         }
+        System.out.println("Sorry that book is not available");
     }
+
+    public void checkinBook(String bookTitle) {
+        for (Book book: outBooks) {
+            if (book.getTitle().equals(bookTitle)) {
+                inBooks.add(book);
+                outBooks.remove(book);
+                System.out.println("Thank you for returning the book");
+                return;
+            }
+        }
+        System.out.println("This is not a valid book to return");
+    }
+
+    public void printBooks(boolean returnBook) {
+        ArrayList<Book> booksToPrint;
+
+        if (returnBook) {
+            booksToPrint = outBooks;
+        }
+        else {
+            booksToPrint = inBooks;
+        }
+        for (Book book: booksToPrint) {
+            System.out.println("\t" + book);
+        }
+    }
+
+//    public void filterBooks(boolean availability) {
+//        for (Integer i = 0; i < allBooks.size(); i++) {
+//            Book b = allBooks.get(i);
+//            Integer j = i + 1;
+//            if (b.isAvailable() == availability) {
+//                System.out.println("\t" + j.toString() + ". " + b);
+//            }
+//        }
+//    }
 }

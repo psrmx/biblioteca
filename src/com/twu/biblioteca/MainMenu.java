@@ -1,12 +1,10 @@
 package com.twu.biblioteca;
 
-import com.twu.biblioteca.exception.BookInvalidException;
-
 import java.util.Scanner;
 
 public class MainMenu {
 
-    private Integer readLine = 0;
+    private Integer readLine = -1;
     private ListOfBooks books = new ListOfBooks();
 
     public void printMenu(){
@@ -15,7 +13,7 @@ public class MainMenu {
     }
 
     public void runMenu() {
-        while (this.readLine != 2) {
+        while (readLine != 2) {
             chooseAction();
         }
         System.exit(0);
@@ -24,18 +22,19 @@ public class MainMenu {
     public void chooseAction(){
         printMenu();
         getInput();
-        switch (this.readLine) {
+        switch (readLine) {
             case 1:
-                books.printBooks(true);
+                books.printBooks(false);
             case 2:
-                try {
-                    System.out.println("Which book do you want to checkout?");
-                    chooseBookFromList();
-                } catch (BookInvalidException e) {
-                    e.printStackTrace();
-                }
+                books.printBooks(false);
+                System.out.println("Enter title of the book you want to checkout:");
+                String bookTitle = getInputString();
+                books.checkoutBook(bookTitle);
             case 3:
-                // return book
+                books.printBooks(true);
+                System.out.println("Enter title of the book you want to return:");
+                bookTitle = getInputString();
+                books.checkinBook(bookTitle);
             case 4:
                 System.out.println("Goodbye user!");
             default:
@@ -43,16 +42,16 @@ public class MainMenu {
         }
     }
 
-    public void chooseBookFromList(ListOfBooks books) throws BookInvalidException {
-        books.printBooks();
-        getInput();
-        if (this.readLine < books.allBooks.size() && this.readLine > 0) {
-            books.checkoutBook(this.readLine);
-        }
-        else {
-            throw new BookInvalidException();
-        }
-    }
+//    public void chooseBookFromList(ListOfBooks books) throws BookInvalidException {
+//        books.printBooks();
+//        getInput();
+//        if (this.readLine < books.allBooks.size() && this.readLine > 0) {
+//            books.checkoutBook(this.readLine);
+//        }
+//        else {
+//            throw new BookInvalidException();
+//        }
+//    }
 
     public Integer getInput() {
         setReadLine(-1);
@@ -60,7 +59,12 @@ public class MainMenu {
         if(reader.hasNextInt()){
             setReadLine(reader.nextInt());
         }
-        return this.readLine;
+        return readLine;
+    }
+
+    public String getInputString() {
+        Scanner reader = new Scanner(System.in);
+        return reader.next();
     }
 
     public void setReadLine(Integer readLine) {

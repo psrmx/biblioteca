@@ -11,19 +11,19 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 public class MainMenuTests {
+    MainMenu menu = new MainMenu();
 
     @Test
     public void shouldTakeCorrectUserInput() {
-        MainMenu menu = new MainMenu();
-        String input = "2";
+        String input = "1";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
-        assertThat(2, is(menu.getInput()));
+
+        assertThat(1, is(menu.getInput()));
     }
 
     @Test
     public void shouldPrintMenuWhenOneIsSelected() {
-        MainMenu menu = new MainMenu();
         // Redirect System.out to buffer
         ByteArrayOutputStream contentOut = new ByteArrayOutputStream();
         System.setOut(new PrintStream(contentOut));
@@ -36,7 +36,6 @@ public class MainMenuTests {
 
     @Test
     public void shouldQuitBibliotecaWhenTwoIsSelected() {
-        MainMenu menu = new MainMenu();
         // Redirect System.out to buffer
         ByteArrayOutputStream contentOut = new ByteArrayOutputStream();
         System.setOut(new PrintStream(contentOut));
@@ -47,17 +46,5 @@ public class MainMenuTests {
         assertThat(contentOut.toString(), is(expectedOut));
     }
 
-    @Test
-    public void shouldCheckoutBookWhenThreeIsSelectedAndValidBook() {
-        MainMenu menu = new MainMenu();
-        // Redirect System.out to buffer
-        ByteArrayOutputStream contentOut = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(contentOut));
-        menu.setReadLine(3);
-        menu.chooseAction();
-
-        String expectedOut = "Thank you! Enjoy the book";
-        assertThat(contentOut.toString(), is(expectedOut));
-    }
     // TODO: test exception/invalid inputs
 }

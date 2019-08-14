@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8878e9f7-bb70-4b19-8677-ca2a69fcc2f0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/Movie.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/ListOfBooks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/ListOfBooks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/ListOfBooks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/ListOfBibliotecaObjects.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/ListOfBooksTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/ListOfBooksTests.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,6 +51,11 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
   </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.twu.biblioteca" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -59,13 +68,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ListOfBooksTests.ShouldPrintOnlyAvailableBooks">
+  <component name="RunManager" selected="Application.BibliotecaApp">
     <configuration name="BibliotecaApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.BibliotecaApp" />
       <module name="biblioteca" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.twu.biblioteca.*" />
+          <option name="PATTERN" value="com.twu.biblioteca.Book" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -85,7 +94,7 @@
       <module name="biblioteca" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.twu.biblioteca.*" />
+          <option name="PATTERN" value="com.twu.biblioteca.Book" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -101,7 +110,7 @@
       <module name="biblioteca" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.twu.biblioteca.*" />
+          <option name="PATTERN" value="com.twu.biblioteca.Book" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -117,7 +126,7 @@
       <module name="biblioteca" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.twu.biblioteca.*" />
+          <option name="PATTERN" value="com.twu.biblioteca.Book" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -138,8 +147,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ListOfBooksTests.ShouldPrintOnlyAvailableBooks" />
         <item itemvalue="Application.BibliotecaApp" />
+        <item itemvalue="JUnit.ListOfBooksTests.ShouldPrintOnlyAvailableBooks" />
         <item itemvalue="JUnit.All in biblioteca" />
         <item itemvalue="JUnit.MainMenuTests.shouldDoUnsuccessfulCheckoutWhenInvalidBook" />
         <item itemvalue="JUnit.MainMenuTests.shouldAskForABookToCheckoutWhenThreeIsSelected" />

@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class MainMenu {
 
     private Integer readLine = -1;
-    private ListOfBooks books = new ListOfBooks();
+    private ListOfBibliotecaObjects books = new ListOfBibliotecaObjects("book");
 
     public void printMenu(){
         String stringMenu = "Menu of options: \n(1) List of books\n(2) Quit biblioteca\n(3) Checkout a book\n(4) Return a book";
@@ -24,17 +24,17 @@ public class MainMenu {
         getInput();
         switch (readLine) {
             case 1:
-                books.printBooks(false);
+                books.printBibObj(false);
             case 2:
-                books.printBooks(false);
+                books.printBibObj(false);
                 System.out.println("Enter title of the book you want to checkout:");
                 String bookTitle = getInputString();
-                books.checkoutBook(bookTitle);
+                books.checkoutBibObj(bookTitle);
             case 3:
-                books.printBooks(true);
+                books.printBibObj(true);
                 System.out.println("Enter title of the book you want to return:");
                 bookTitle = getInputString();
-                books.checkinBook(bookTitle);
+                books.checkinBibObj(bookTitle);
             case 4:
                 System.out.println("Goodbye user!");
             default:

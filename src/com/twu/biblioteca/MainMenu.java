@@ -9,12 +9,21 @@ public class MainMenu {
     private ListOfBibliotecaObjects movies = new ListOfBibliotecaObjects("movie");
 
     public void printMenu(){
-        String stringMenu = "Menu of options: \n(1) List of books\n(2) Checkout a book\n(3) Return a book\n(4) Quit Biblioteca\n(5) List of movies\n(6) Checkout a movie";
+        String stringMenu =
+                "Menu of options: \n" +
+                "(1) List of books\n" +
+                "(2) Checkout a book\n" +
+                "(3) Return a book\n" +
+                "(4) List of movies\n" +
+                "(5) Checkout a movie\n" +
+                "(6) Return a movie\n" +
+                "(9) Quit Biblioteca";
+
         System.out.println(stringMenu);
     }
 
     public void runMenu() {
-        while (readLine != 4) {
+        while (readLine != 9) {
             chooseAction();
         }
         System.exit(0);
@@ -28,50 +37,41 @@ public class MainMenu {
                 books.printBibObj(false);
                 return;
             case 2:
-                books.printBibObj(false);
-                System.out.println("Enter title of the book you want to checkout:");
-                String bookTitle = getInputString();
-                books.checkoutBibObj(bookTitle);
+                processToCheckoutObject(books);
                 return;
             case 3:
-                books.printBibObj(true);
-                System.out.println("Enter title of the book you want to return:");
-                bookTitle = getInputString();
-                books.checkinBibObj(bookTitle);
+                processToCheckinObject(books);
                 return;
             case 4:
-                System.out.println("Goodbye user!");
+                movies.printBibObj(false);
                 return;
             case 5:
-                movies.printBibObj(false);
+                processToCheckoutObject(movies);
                 return;
             case 6:
-                movies.printBibObj(false);
-                System.out.println("Enter title of the movie you want to checkout:");
-                String movieTitle = getInputString();
-                movies.checkoutBibObj(movieTitle);
+                processToCheckinObject(movies);
                 return;
-            case 7:
-                movies.printBibObj(true);
-                System.out.println("Enter title of the movie you want to return:");
-                movieTitle = getInputString();
-                movies.checkinBibObj(movieTitle);
+            case 9:
+                System.out.println("Goodbye user!");
                 return;
             default:
                 System.out.println("Please select a valid option!");
         }
     }
 
-//    public void chooseBookFromList(ListOfBooks books) throws BookInvalidException {
-//        books.printBooks();
-//        getInput();
-//        if (this.readLine < books.allBooks.size() && this.readLine > 0) {
-//            books.checkoutBook(this.readLine);
-//        }
-//        else {
-//            throw new BookInvalidException();
-//        }
-//    }
+    public void processToCheckoutObject(ListOfBibliotecaObjects bibObjs) {
+        bibObjs.printBibObj(false);
+        System.out.println("Enter title of the " + bibObjs.objectType + " you want to checkout:");
+        String objTitle = getInputString();
+        bibObjs.checkoutBibObj(objTitle);
+    }
+
+    public void processToCheckinObject(ListOfBibliotecaObjects bibObjs) {
+        bibObjs.printBibObj(true);
+        System.out.println("Enter title of the " + bibObjs.objectType + " you want to return:");
+        String objTitle = getInputString();
+        bibObjs.checkinBibObj(objTitle);
+    }
 
     public Integer getInput() {
         setReadLine(-1);

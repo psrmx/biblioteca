@@ -7,21 +7,22 @@ public class ListOfBibliotecaObjects {
 
     public ArrayList<BibliotecaObject> inObjects;
     public ArrayList<BibliotecaObject> outObjects;
-    private String objectType;
+    public String objectType;
 
     public ListOfBibliotecaObjects(String objectType) {
         this.objectType = objectType.toLowerCase();
         inObjects = new ArrayList<BibliotecaObject>();
         outObjects = new ArrayList<BibliotecaObject>();
         if(this.objectType.equals("book")){
-            inObjects.add(new BibliotecaObject("A", "Tom", "1999"));
-            inObjects.add(new BibliotecaObject("B", "Patti", "1988"));
+            inObjects.add(new Book("A", "Tom", "1999"));
+            inObjects.add(new Book("B", "Patti", "1988"));
 //        inBooks.add(new Book("D", "Georg", "2011", true));
-            outObjects.add(new BibliotecaObject("C", "Marta", "2001"));
+            outObjects.add(new Book("C", "Marta", "2001"));
         }
         else if(this.objectType.equals("movie")){
-            inObjects.add(new BibliotecaObject("Kill Bill", "Tarantino", "2002", "8"));
-            inObjects.add(new BibliotecaObject("Shawshank redemption", "Doe", "1995", "unrated"));
+            inObjects.add(new Movie("Kill Bill", "Tarantino", "2002", "8"));
+            inObjects.add(new Movie("Shawshank redemption", "Doe", "1995", "unrated"));
+            outObjects.add(new Movie("Star Wars", "Lucas", "2010", "5"));
         }
     }
 

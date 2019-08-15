@@ -12,7 +12,6 @@ public class ListOfBibliotecaObjectsTests {
     public ListOfBibliotecaObjects books = new ListOfBibliotecaObjects("book");
     public ListOfBibliotecaObjects movies = new ListOfBibliotecaObjects("movie");
 
-
     @Test
     public void ShouldPrintOnlyAvailableBooks() {
         // Redirect System.out to buffer
@@ -24,7 +23,6 @@ public class ListOfBibliotecaObjectsTests {
         assertThat(contentOut.toString(), is(expectedOut));
     }
 
-    // we need to iterate through each object until we have found the proper value
     @Test
     public void ShouldAddABookToCheckedOutObjWhenCorrectBookTitleEntered() {
         books.checkoutBibObj("A");
@@ -37,17 +35,23 @@ public class ListOfBibliotecaObjectsTests {
         assertThat(books.inObjects.size(), is(3));
     }
 
-    // we need to iterate through each object until we have found the proper value
     @Test
-    public void ShouldAddAMovieToCheckedOutObjWhenCorrectBookTitleEntered() {
+    public void ShouldAddAMovieToCheckedOutObjWhenCorrectMovieTitleEntered() {
         movies.checkoutBibObj("Kill Bill");
         assertThat(movies.inObjects.size(), is(1));
     }
 
     @Test
-    public void ShouldNotAddAMovieToCheckedOutObjWhenIncorrectBookTitleEntered() {
+    public void ShouldNotAddAMovieToCheckedOutObjWhenIncorrectMovieTitleEntered() {
         movies.checkinBibObj("Movie That's Not in The Lib");
         assertThat(movies.inObjects.size(), is(2));
+    }
+
+    @Test
+    public void ShouldCheckInAMovieToCheckedInObjWhenCorrectMovieTitleEntered() {
+        BibliotecaObject starWars = new Movie("Star Wars", "Lucas", "2010", "5");
+        movies.checkinBibObj("Star Wars");
+        assertThat(movies.inObjects.size(), is(3));
     }
 
 //    @Test

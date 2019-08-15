@@ -13,7 +13,15 @@ import static org.junit.Assert.assertThat;
 
 public class MainMenuTests {
     MainMenu menu = new MainMenu();
-    private String expectedMenu = "Menu of options: \n(1) List of books\n(2) Checkout a book\n(3) Return a book\n(4) Quit Biblioteca\n(5) List of movies\n(6) Checkout a movie\n";
+    private String expectedMenu =
+            "Menu of options: \n" +
+            "(1) List of books\n" +
+            "(2) Checkout a book\n" +
+            "(3) Return a book\n" +
+            "(4) List of movies\n" +
+            "(5) Checkout a movie\n" +
+            "(6) Return a movie\n" +
+            "(9) Quit Biblioteca\n";
 
     private InputStream providedInput(String input) {
         return new ByteArrayInputStream(input.getBytes());
@@ -45,7 +53,7 @@ public class MainMenuTests {
         ByteArrayOutputStream contentOut = new ByteArrayOutputStream();
         System.setOut(new PrintStream(contentOut));
         // action
-        InputStream in = providedInput("4");
+        InputStream in = providedInput("9");
         System.setIn(in);
         menu.chooseAction();
         // assert

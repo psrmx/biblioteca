@@ -8,8 +8,10 @@ import java.io.PrintStream;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
-public class ListOfBooksTests {
-    public ListOfBibliotecaObjects books = new ListOfBibliotecaObjects("Book");
+public class ListOfBibliotecaObjectsTests {
+    public ListOfBibliotecaObjects books = new ListOfBibliotecaObjects("book");
+    public ListOfBibliotecaObjects movies = new ListOfBibliotecaObjects("movie");
+
 
     @Test
     public void ShouldPrintOnlyAvailableBooks() {
@@ -24,7 +26,7 @@ public class ListOfBooksTests {
 
     // we need to iterate through each object until we have found the proper value
     @Test
-    public void ShouldAddABookToCheckedOutBooksWhenCorrectBookTitleEntered() {
+    public void ShouldAddABookToCheckedOutObjWhenCorrectBookTitleEntered() {
         books.checkoutBibObj("A");
         assertThat(books.outObjects.size(), is(2));
     }
@@ -34,4 +36,23 @@ public class ListOfBooksTests {
         books.checkinBibObj("C");
         assertThat(books.inObjects.size(), is(3));
     }
+
+    // we need to iterate through each object until we have found the proper value
+    @Test
+    public void ShouldAddAMovieToCheckedOutObjWhenCorrectBookTitleEntered() {
+        movies.checkoutBibObj("Kill Bill");
+        assertThat(movies.inObjects.size(), is(1));
+    }
+
+    @Test
+    public void ShouldNotAddAMovieToCheckedOutObjWhenIncorrectBookTitleEntered() {
+        movies.checkinBibObj("Movie That's Not in The Lib");
+        assertThat(movies.inObjects.size(), is(2));
+    }
+
+//    @Test
+//    public void ShouldAddMovieToCheckedInBooksWhenCorrectBookTitleEntered() {
+//        movies.checkinBibObj("C");
+//        assertThat(movies.inObjects.size(), is(3));
+//    }
 }

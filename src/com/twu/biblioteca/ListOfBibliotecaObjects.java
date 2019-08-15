@@ -10,18 +10,24 @@ public class ListOfBibliotecaObjects {
     private String objectType;
 
     public ListOfBibliotecaObjects(String objectType) {
-        this.objectType = objectType;
+        this.objectType = objectType.toLowerCase();
         inObjects = new ArrayList<BibliotecaObject>();
         outObjects = new ArrayList<BibliotecaObject>();
-        inObjects.add(new BibliotecaObject("A", "Tom", "1999"));
-        inObjects.add(new BibliotecaObject("B", "Patti", "1988"));
+        if(this.objectType.equals("book")){
+            inObjects.add(new BibliotecaObject("A", "Tom", "1999"));
+            inObjects.add(new BibliotecaObject("B", "Patti", "1988"));
 //        inBooks.add(new Book("D", "Georg", "2011", true));
-        outObjects.add(new BibliotecaObject("C", "Marta", "2001"));
+            outObjects.add(new BibliotecaObject("C", "Marta", "2001"));
+        }
+        else if(this.objectType.equals("movie")){
+            inObjects.add(new BibliotecaObject("Kill Bill", "Tarantino", "2002", "8"));
+            inObjects.add(new BibliotecaObject("Shawshank redemption", "Doe", "1995", "unrated"));
+        }
     }
 
-    public void checkoutBibObj(String bookTitle) {
+    public void checkoutBibObj(String objectTitle) {
         for (BibliotecaObject bibObj: inObjects) {
-            if (bibObj.getTitle().equals(bookTitle)) {
+            if (bibObj.getTitle().equals(objectTitle)) {
                 inObjects.remove(bibObj);
                 outObjects.add(bibObj);
                 System.out.println("Thank you! Enjoy the " + this.objectType);
@@ -31,11 +37,12 @@ public class ListOfBibliotecaObjects {
         System.out.println("Sorry that " + this.objectType + " is not available");
     }
 
-    public void checkinBibObj(String bookTitle) {
-        for (BibliotecaObject bibObjc: outObjects) {
-            if (bibObjc.getTitle().equals(bookTitle)) {
-                inObjects.add(bibObjc);
-                outObjects.remove(bibObjc);
+    public void checkinBibObj(String objectTitle) {
+
+        for (BibliotecaObject bibObj: outObjects) {
+            if (bibObj.getTitle().equals(objectTitle)) {
+                inObjects.add(bibObj);
+                outObjects.remove(bibObj);
                 System.out.println("Thank you for returning the " + this.objectType);
                 return;
             }

@@ -1,14 +1,14 @@
 package com.twu.biblioteca;
 
 public class Movie extends BibliotecaObject {
-    private String rating;
 
     public Movie(String title, String author, String year, String rating) {
-        super(title, author, year);
-        this.rating = rating;
+        super(title, author, year, rating);
     }
 
-    public String getRating() {
-        return this.rating;
+    @Override
+    public String toString(){
+        return String.format(this.getTitle() + " | " + this.getAuthor() + " | " + this.getYear() + " | " + this.getRating());
     }
+
 }

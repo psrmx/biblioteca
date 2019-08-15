@@ -7,33 +7,42 @@ import static org.junit.Assert.assertThat;
 
 
 public class BibliotecaTests {
+    // arrange objects
+    private WelcomeMessage message = new WelcomeMessage();
+    private Book b = new Book("B", "Tom", "1999");
+    private Movie m = new Movie("Kill Bill", "Tarantino", "2002", "8");
+    private Movie m_bis = new Movie("Shawshank redemption", "Doe", "1995", "unrated");
+
     @Test
     public void shouldPrintWelcomeMessageWhenInitialized() {
-        // arrange
-        WelcomeMessage message = new WelcomeMessage();
-
-        // assert
         assertThat(message.toString(), is("Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!"));
     }
 
     @Test
     public void ShouldCreateABookInstance() {
-        // arrange
-        Book b = new Book("B", "Tom", "1999");
-
-        // assert
         assertThat(b.getTitle(), is("B"));
         assertThat(b.getAuthor(), is("Tom"));
         assertThat(b.getYear(), is("1999"));
     }
 
     @Test
-    public void ShouldDisplayTheCorrectBookInformation() {
-        // arrange
-        Book b = new Book("B", "Tom", "1999");
-
-        // assert
+    public void ShouldPrintTheCorrectBookInformation() {
         assertThat(b.toString(), is("B | Tom | 1999"));
+    }
 
+    @Test
+    public void ShouldCreateAMovieInstance() {
+        assertThat(m.getTitle(), is("Kill Bill"));
+        assertThat(m.getAuthor(), is("Tarantino"));
+        assertThat(m.getYear(), is("2002"));
+        assertThat(m.getRating(), is("8"));
+        assertThat(m_bis.getRating(), is("unrated"));
+    }
+
+
+    @Test
+    public void ShouldPrintTheCorrectMovieInformation() {
+        assertThat(m.toString(), is("Kill Bill | Tarantino | 2002 | 8"));
+        assertThat(m_bis.toString(), is("Shawshank redemption | Doe | 1995 | unrated"));
     }
 }

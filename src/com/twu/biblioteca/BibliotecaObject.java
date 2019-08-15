@@ -4,11 +4,19 @@ public class BibliotecaObject {
     private String title;
     private String author;
     private String year;
+    private String rating;
 
     public BibliotecaObject(String title, String author, String year) {
         this.title = title;
         this.author = author;
         this.year = year;
+    }
+
+    public BibliotecaObject(String title, String author, String year, String rating) {
+        this.title = title;
+        this.author = author;
+        this.year = year;
+        this.rating = rating;
     }
 
     public String getTitle(){
@@ -19,12 +27,12 @@ public class BibliotecaObject {
         return this.author;
     }
 
-    public String getYear(){
-        return this.year;
-    }
+    public String getYear() { return this.year; }
+
+    public String getRating() { return this.rating; }
 
     @Override
     public String toString(){
-        return String.format(title + " | " + author + " | " + year);
+        return String.format(this.getTitle() + " | " + this.getAuthor() + " | " + this.getYear());
     }
 }

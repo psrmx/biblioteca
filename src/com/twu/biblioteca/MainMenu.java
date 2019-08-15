@@ -6,9 +6,10 @@ public class MainMenu {
 
     private Integer readLine = -1;
     private ListOfBibliotecaObjects books = new ListOfBibliotecaObjects("book");
+    private ListOfBibliotecaObjects movies = new ListOfBibliotecaObjects("movie");
 
     public void printMenu(){
-        String stringMenu = "Menu of options: \n(1) List of books\n(2) Checkout a book\n(3) Return a book\n(4) Quit Biblioteca";
+        String stringMenu = "Menu of options: \n(1) List of books\n(2) Checkout a book\n(3) Return a book\n(4) Quit Biblioteca\n(5) List of movies\n(6) Checkout a movie";
         System.out.println(stringMenu);
     }
 
@@ -41,6 +42,21 @@ public class MainMenu {
             case 4:
                 System.out.println("Goodbye user!");
                 return;
+            case 5:
+                movies.printBibObj(false);
+                return;
+            case 6:
+                movies.printBibObj(false);
+                System.out.println("Enter title of the movie you want to checkout:");
+                String movieTitle = getInputString();
+                movies.checkoutBibObj(movieTitle);
+                return;
+            case 7:
+                movies.printBibObj(true);
+                System.out.println("Enter title of the movie you want to return:");
+                movieTitle = getInputString();
+                movies.checkinBibObj(movieTitle);
+                return;
             default:
                 System.out.println("Please select a valid option!");
         }
@@ -68,7 +84,7 @@ public class MainMenu {
 
     public String getInputString() {
         Scanner reader = new Scanner(System.in);
-        return reader.next();
+        return reader.nextLine();
     }
 
     public void setReadLine(Integer readLine) {

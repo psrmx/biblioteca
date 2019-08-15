@@ -13,7 +13,7 @@ import static org.junit.Assert.assertThat;
 
 public class MainMenuTests {
     MainMenu menu = new MainMenu();
-    private String expectedMenu = "Menu of options: \n(1) List of books\n(2) Checkout a book\n(3) Return a book\n(4) Quit Biblioteca\n";
+    private String expectedMenu = "Menu of options: \n(1) List of books\n(2) Checkout a book\n(3) Return a book\n(4) Quit Biblioteca\n(5) List of movies\n(6) Checkout a movie\n";
 
     private InputStream providedInput(String input) {
         return new ByteArrayInputStream(input.getBytes());
@@ -40,7 +40,7 @@ public class MainMenuTests {
     }
 
     @Test
-    public void shouldQuitBibliotecaWhenTwoIsSelected() throws BookInvalidException {
+    public void shouldQuitBibliotecaWhenQuitOptionIsSelected() throws BookInvalidException {
         // Redirect System.out to buffer
         ByteArrayOutputStream contentOut = new ByteArrayOutputStream();
         System.setOut(new PrintStream(contentOut));

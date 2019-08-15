@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import org.hamcrest.core.Is;
 import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;
@@ -50,5 +51,13 @@ public class BibliotecaTests {
     public void ShouldSetUsernameToABiblioObjectWhenCheckout() {
         m_bis.setUsername(user.username);
         assertThat(m_bis.getUsername(), is("111-1111"));
+    }
+
+    @Test
+    public void shouldPrintUserInfoWhenToString() throws Exception {
+        User this_user = new User("333-3333", "3", "my_name", "123@me.com", "+567");
+        // assert
+        String expectedOut = "my_name | 123@me.com | +567";
+        assertThat(this_user.toString(), Is.is(expectedOut));
     }
 }

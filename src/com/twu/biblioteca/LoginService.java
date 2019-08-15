@@ -9,11 +9,11 @@ public class LoginService {
 
     List<User> users = new ArrayList<>();
     {
-        User user1 = new User("111-1111", "1");
+        User user1 = new User("111-1111", "1", "Steph", "steph@iamsteph.com","+12345");
         users.add(user1);
-        User user2 = new User("222-2222", "2");
+        User user2 = new User("222-2222", "2", "Cher", "doubelieve@loveafterlove.com","+666");
         users.add(user2);
-        User user3 = new User("333-3333", "3");
+        User user3 = new User("333-3333", "3", "Anonimus", "anon@anon.com","911");
         users.add(user3);
     }
 

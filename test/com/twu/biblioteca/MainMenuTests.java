@@ -1,6 +1,5 @@
 package com.twu.biblioteca;
 
-import com.twu.biblioteca.exception.BookInvalidException;
 import org.junit.Test;
 
 import java.io.ByteArrayInputStream;
@@ -22,6 +21,17 @@ public class MainMenuTests {
             "(5) Checkout a movie\n" +
             "(6) Return a movie\n" +
             "(9) Quit Biblioteca\n";
+
+    private String expectedUserMenu =
+            "Menu of options: \n" +
+                    "(1) List of books\n" +
+                    "(2) Checkout a book\n" +
+                    "(3) Return a book\n" +
+                    "(4) List of movies\n" +
+                    "(5) Checkout a movie\n" +
+                    "(6) Return a movie\n" +
+                    "(7) Display user information\n" +
+                    "(9) Quit Biblioteca\n";
 
     private InputStream providedInput(String input) {
         return new ByteArrayInputStream(input.getBytes());
@@ -48,7 +58,7 @@ public class MainMenuTests {
     }
 
     @Test
-    public void shouldQuitBibliotecaWhenQuitOptionIsSelected() throws BookInvalidException {
+    public void shouldQuitBibliotecaWhenQuitOptionIsSelected() throws Exception {
         // Redirect System.out to buffer
         ByteArrayOutputStream contentOut = new ByteArrayOutputStream();
         System.setOut(new PrintStream(contentOut));
@@ -60,6 +70,20 @@ public class MainMenuTests {
         String expectedOut = expectedMenu + "Goodbye user!\n";
         assertThat(contentOut.toString(), is(expectedOut));
     }
+
+    @Test
+    public void shouldDisplayInformationForUsersWhenLoggedInAndChoosingRightOption() throws Exception {
+        // Redirect System.out to buffer
+        ByteArrayOutputStream contentOut = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(contentOut));
+        // action
+        menu.session.currentUser = new User("111-1111", "1");
+        menu.printMenu();
+        // assert
+        String expectedOut = expectedUserMenu;
+        assertThat(contentOut.toString(), is(expectedOut));
+    }
+
     // TODO: test exception/invalid inputs
     // TODO: test runMenu method
 }

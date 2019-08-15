@@ -7,18 +7,22 @@ public class MainMenu {
     private Integer readLine = -1;
     private ListOfBibliotecaObjects books = new ListOfBibliotecaObjects("book");
     private ListOfBibliotecaObjects movies = new ListOfBibliotecaObjects("movie");
-    private LoginService session = new LoginService();
+    public LoginService session = new LoginService();
 
     public void printMenu(){
-        String stringMenu =
-                "Menu of options: \n" +
-                "(1) List of books\n" +
-                "(2) Checkout a book\n" +
-                "(3) Return a book\n" +
-                "(4) List of movies\n" +
-                "(5) Checkout a movie\n" +
-                "(6) Return a movie\n" +
-                "(9) Quit Biblioteca";
+        String extraMenuOption = "";
+        if (!session.currentUser.username.isEmpty()) {
+            extraMenuOption = "(7) Display user information\n";
+        }
+            String stringMenu =
+                    "Menu of options: \n" +
+                    "(1) List of books\n" +
+                    "(2) Checkout a book\n" +
+                    "(3) Return a book\n" +
+                    "(4) List of movies\n" +
+                    "(5) Checkout a movie\n" +
+                    "(6) Return a movie\n" + extraMenuOption +
+                    "(9) Quit Biblioteca";
 
         System.out.println(stringMenu);
     }
@@ -51,6 +55,14 @@ public class MainMenu {
                 return;
             case 6:
                 processToCheckinObject(movies);
+                return;
+            case 7:
+                if (!session.currentUser.username.isEmpty()) {
+                    System.out.println(session.currentUser);
+                }
+                else {
+                    System.out.println("Please select a valid option!");
+                }
                 return;
             case 9:
                 System.out.println("Goodbye user!");

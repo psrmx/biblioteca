@@ -5,8 +5,8 @@ import java.util.ArrayList;
 
 public class ListOfBibliotecaObjects {
 
-    private ArrayList<BibliotecaObject> inObjects;
-    private ArrayList<BibliotecaObject> outObjects;
+    public ArrayList<BibliotecaObject> inObjects;
+    public ArrayList<BibliotecaObject> outObjects;
     private String objectType;
 
     public ListOfBibliotecaObjects(String objectType) {

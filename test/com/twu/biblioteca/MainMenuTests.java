@@ -45,42 +45,13 @@ public class MainMenuTests {
         ByteArrayOutputStream contentOut = new ByteArrayOutputStream();
         System.setOut(new PrintStream(contentOut));
         // action
-        InputStream in = providedInput("2");
+        InputStream in = providedInput("4");
         System.setIn(in);
         menu.chooseAction();
         // assert
         String expectedOut = expectedMenu + "Goodbye user!\n";
         assertThat(contentOut.toString(), is(expectedOut));
     }
-
-    @Test
-    public void shouldDoSuccessfulCheckoutWhenValidBook() throws BookInvalidException {
-        // Redirect System.out to buffer
-        ByteArrayOutputStream contentOut = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(contentOut));
-        // action
-        InputStream in = providedInput("1");
-        System.setIn(in);
-        menu.chooseBookToCheckout();
-        // assert
-        String expectedOut = "Which book do you want to checkout?\n\t1. A | Tom | 1999\n\t2. B | Patti | 1988\n" + "Thank you! Enjoy the book.\n";
-        assertThat(contentOut.toString(), is(expectedOut));
-    }
-
-    @Test
-    public void shouldDoUnsuccessfulCheckoutWhenInvalidBook() {
-        Boolean thrown = false;
-        try {
-            InputStream in = providedInput("k");
-            System.setIn(in);
-            menu.chooseBookToCheckout();
-        } catch (BookInvalidException e) {
-            thrown = true;
-        }
-        assertThat(thrown, is(true));
-    }
-
-
     // TODO: test exception/invalid inputs
     // TODO: test runMenu method
 }

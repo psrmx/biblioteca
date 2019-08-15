@@ -19,7 +19,7 @@ public class BibliotecaTests {
     @Test
     public void ShouldCreateABookInstance() {
         // arrange
-        Book b = new Book("B", "Tom", "1999", true);
+        Book b = new Book("B", "Tom", "1999");
 
         // assert
         assertThat(b.getTitle(), is("B"));
@@ -30,7 +30,7 @@ public class BibliotecaTests {
     @Test
     public void ShouldDisplayTheCorrectBookInformation() {
         // arrange
-        Book b = new Book("B", "Tom", "1999", true);
+        Book b = new Book("B", "Tom", "1999");
 
         // assert
         assertThat(b.toString(), is("B | Tom | 1999"));

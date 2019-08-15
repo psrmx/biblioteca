@@ -37,6 +37,7 @@ public class MainMenu {
                 books.checkinBibObj(bookTitle);
             case 4:
                 System.out.println("Goodbye user!");
+                return;
             default:
                 System.out.println("Please select a valid option!");
         }

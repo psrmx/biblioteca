@@ -9,7 +9,7 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 public class ListOfBooksTests {
-    public ListOfBibliotecaObjects books = new ListOfBibliotecaObjects();
+    public ListOfBibliotecaObjects books = new ListOfBibliotecaObjects("Book");
 
     @Test
     public void ShouldPrintOnlyAvailableBooks() {
@@ -22,15 +22,16 @@ public class ListOfBooksTests {
         assertThat(contentOut.toString(), is(expectedOut));
     }
 
+    // we need to iterate through each object until we have found the proper value
     @Test
-    public void ShouldChangeAvailabilityOfCheckedoutBook() {
-        books.checkoutBibObj('A');
-        assertThat(books.outBooks.contains('A'), is(false));
+    public void ShouldAddABookToCheckedOutBooksWhenCorrectBookTitleEntered() {
+        books.checkoutBibObj("A");
+        assertThat(books.outObjects.size(), is(2));
     }
 
     @Test
-    public void ShouldReturnABookWhenValidOptionSelected() {
-        books.checkinBibObj('A');
-        assertThat(books.inBooks.contains('A'), is(true));
+    public void ShouldAddABookToCheckedInBooksWhenCorrectBookTitleEntered() {
+        books.checkinBibObj("C");
+        assertThat(books.inObjects.size(), is(3));
     }
 }

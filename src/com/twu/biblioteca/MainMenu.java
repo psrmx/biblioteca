@@ -8,12 +8,12 @@ public class MainMenu {
     private ListOfBibliotecaObjects books = new ListOfBibliotecaObjects("book");
 
     public void printMenu(){
-        String stringMenu = "Menu of options: \n(1) List of books\n(2) Quit biblioteca\n(3) Checkout a book\n(4) Return a book";
+        String stringMenu = "Menu of options: \n(1) List of books\n(2) Checkout a book\n(3) Return a book\n(4) Quit Biblioteca";
         System.out.println(stringMenu);
     }
 
     public void runMenu() {
-        while (readLine != 2) {
+        while (readLine != 4) {
             chooseAction();
         }
         System.exit(0);
@@ -25,16 +25,19 @@ public class MainMenu {
         switch (readLine) {
             case 1:
                 books.printBibObj(false);
+                return;
             case 2:
                 books.printBibObj(false);
                 System.out.println("Enter title of the book you want to checkout:");
                 String bookTitle = getInputString();
                 books.checkoutBibObj(bookTitle);
+                return;
             case 3:
                 books.printBibObj(true);
                 System.out.println("Enter title of the book you want to return:");
                 bookTitle = getInputString();
                 books.checkinBibObj(bookTitle);
+                return;
             case 4:
                 System.out.println("Goodbye user!");
                 return;

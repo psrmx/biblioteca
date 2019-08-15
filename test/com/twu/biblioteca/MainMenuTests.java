@@ -13,7 +13,7 @@ import static org.junit.Assert.assertThat;
 
 public class MainMenuTests {
     MainMenu menu = new MainMenu();
-    private String expectedMenu = "Menu of options: \n(1) List of books\n(2) Quit biblioteca\n(3) Checkout a book\n(4) Return a book\n";
+    private String expectedMenu = "Menu of options: \n(1) List of books\n(2) Checkout a book\n(3) Return a book\n(4) Quit Biblioteca\n";
 
     private InputStream providedInput(String input) {
         return new ByteArrayInputStream(input.getBytes());

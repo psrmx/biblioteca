@@ -5,6 +5,7 @@ public class BibliotecaObject {
     private String author;
     private String year;
     private String rating;
+    private String username = "";
 
     public BibliotecaObject(String title, String author, String year) {
         this.title = title;
@@ -30,6 +31,10 @@ public class BibliotecaObject {
     public String getYear() { return this.year; }
 
     public String getRating() { return this.rating; }
+
+    public String getUsername() { return this.username; }
+
+    public void setUsername(String username) { this.username = username; }
 
     @Override
     public String toString(){

@@ -15,6 +15,7 @@ public class ListOfBibliotecaObjects {
         outObjects = new ArrayList<BibliotecaObject>();
         if(this.objectType.equals("book")){
             inObjects.add(new Book("A", "Tom", "1999"));
+            inObjects.get(0).setUsername("111-1111");
             inObjects.add(new Book("B", "Patti", "1988"));
 //        inBooks.add(new Book("D", "Georg", "2011", true));
             outObjects.add(new Book("C", "Marta", "2001"));
@@ -26,11 +27,12 @@ public class ListOfBibliotecaObjects {
         }
     }
 
-    public void checkoutBibObj(String objectTitle) {
+    public void checkoutBibObj(String objectTitle, User user) {
         for (BibliotecaObject bibObj: inObjects) {
             if (bibObj.getTitle().equals(objectTitle)) {
                 inObjects.remove(bibObj);
                 outObjects.add(bibObj);
+                bibObj.setUsername(user.username);
                 System.out.println("Thank you! Enjoy the " + this.objectType);
                 return;
             }
@@ -44,6 +46,7 @@ public class ListOfBibliotecaObjects {
             if (bibObj.getTitle().equals(objectTitle)) {
                 inObjects.add(bibObj);
                 outObjects.remove(bibObj);
+                bibObj.setUsername("");
                 System.out.println("Thank you for returning the " + this.objectType);
                 return;
             }
@@ -51,18 +54,24 @@ public class ListOfBibliotecaObjects {
         System.out.println("This is not a valid " + this.objectType + " to return");
     }
 
-    public void printBibObj(boolean returnBook) {
-        ArrayList<BibliotecaObject> booksToPrint;
+    public Integer printBibObjPerUser( ArrayList<BibliotecaObject> objectsToPrint, User user) {
+        Integer n_objs = 0;
+        for (BibliotecaObject bibObj: objectsToPrint) {
+            if (bibObj.getUsername().equals(user.username)) {
+                System.out.println("\t" + bibObj);
+                n_objs += 1;
+            }
+        }
+        return n_objs;
+    }
 
-        if (returnBook) {
-            booksToPrint = outObjects;
-        }
-        else {
-            booksToPrint = inObjects;
-        }
-        for (BibliotecaObject bibObj: booksToPrint) {
+    public Integer printAllInBibObj() {
+        Integer n_objs = 0;
+        for (BibliotecaObject bibObj : inObjects) {
             System.out.println("\t" + bibObj);
+            n_objs += 1;
         }
+        return n_objs;
     }
 
 //    public void filterBooks(boolean availability) {

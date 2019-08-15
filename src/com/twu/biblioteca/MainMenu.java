@@ -7,6 +7,7 @@ public class MainMenu {
     private Integer readLine = -1;
     private ListOfBibliotecaObjects books = new ListOfBibliotecaObjects("book");
     private ListOfBibliotecaObjects movies = new ListOfBibliotecaObjects("movie");
+    private LoginService session = new LoginService();
 
     public void printMenu(){
         String stringMenu =
@@ -34,7 +35,7 @@ public class MainMenu {
         getInput();
         switch (readLine) {
             case 1:
-                books.printBibObj(false);
+                books.printAllInBibObj();
                 return;
             case 2:
                 processToCheckoutObject(books);
@@ -43,7 +44,7 @@ public class MainMenu {
                 processToCheckinObject(books);
                 return;
             case 4:
-                movies.printBibObj(false);
+                movies.printAllInBibObj();
                 return;
             case 5:
                 processToCheckoutObject(movies);
@@ -59,18 +60,44 @@ public class MainMenu {
         }
     }
 
+    public void validateUser() {
+            System.out.print("Please enter your username: ");
+            String inputUsername = getInputString();
+            System.out.print("Please enter your password: ");
+            String inputPassword = getInputString();
+            session.authenticate(inputUsername, inputPassword);
+    }
+
     public void processToCheckoutObject(ListOfBibliotecaObjects bibObjs) {
-        bibObjs.printBibObj(false);
-        System.out.println("Enter title of the " + bibObjs.objectType + " you want to checkout:");
-        String objTitle = getInputString();
-        bibObjs.checkoutBibObj(objTitle);
+        if (session.currentUser.username.isEmpty()) {
+            validateUser();
+        }
+        else {
+            if (bibObjs.printAllInBibObj() > 0) {
+                System.out.println("Enter title of the " + bibObjs.objectType + " you want to checkout:");
+                String objTitle = getInputString();
+                bibObjs.checkoutBibObj(objTitle, session.currentUser);
+            }
+            else{
+                System.out.println("No "+ bibObjs.objectType + " to checkout");
+            }
+        }
     }
 
     public void processToCheckinObject(ListOfBibliotecaObjects bibObjs) {
-        bibObjs.printBibObj(true);
-        System.out.println("Enter title of the " + bibObjs.objectType + " you want to return:");
-        String objTitle = getInputString();
-        bibObjs.checkinBibObj(objTitle);
+        if (session.currentUser.username.isEmpty()) {
+            validateUser();
+        }
+        else {
+            if (bibObjs.printBibObjPerUser(bibObjs.outObjects, session.currentUser) > 0) {
+                System.out.println("Enter title of the " + bibObjs.objectType + " you want to return:");
+                String objTitle = getInputString();
+                bibObjs.checkinBibObj(objTitle);
+            }
+            else {
+                System.out.println("You don't have any "+ bibObjs.objectType + " to checkin");
+            }
+        }
     }
 
     public Integer getInput() {

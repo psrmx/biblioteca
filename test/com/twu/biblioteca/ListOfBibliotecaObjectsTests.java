@@ -11,13 +11,14 @@ import static org.junit.Assert.assertThat;
 public class ListOfBibliotecaObjectsTests {
     public ListOfBibliotecaObjects books = new ListOfBibliotecaObjects("book");
     public ListOfBibliotecaObjects movies = new ListOfBibliotecaObjects("movie");
+    public User user = new User("111-1111", "123password");
 
     @Test
     public void ShouldPrintOnlyAvailableBooks() {
         // Redirect System.out to buffer
         ByteArrayOutputStream contentOut = new ByteArrayOutputStream();
         System.setOut(new PrintStream(contentOut));
-        books.printBibObj(false);
+        books.printAllInBibObj();
         // assert
         String expectedOut = "\tA | Tom | 1999\n\tB | Patti | 1988\n";
         assertThat(contentOut.toString(), is(expectedOut));
@@ -25,7 +26,7 @@ public class ListOfBibliotecaObjectsTests {
 
     @Test
     public void ShouldAddABookToCheckedOutObjWhenCorrectBookTitleEntered() {
-        books.checkoutBibObj("A");
+        books.checkoutBibObj("A", user);
         assertThat(books.outObjects.size(), is(2));
     }
 
@@ -37,7 +38,7 @@ public class ListOfBibliotecaObjectsTests {
 
     @Test
     public void ShouldAddAMovieToCheckedOutObjWhenCorrectMovieTitleEntered() {
-        movies.checkoutBibObj("Kill Bill");
+        movies.checkoutBibObj("Kill Bill", user);
         assertThat(movies.inObjects.size(), is(1));
     }
 

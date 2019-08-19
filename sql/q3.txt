@@ -1,0 +1,38 @@
+3. What books and movies aren't checked out?
+Books: 
+Fellowship of the Ring
+1984
+Tom Sawyer
+Catcher in the Rye
+To Kill a Mockingbird
+Domain Driven Design
+
+Movies:
+Thin Red Line
+Crouching Tiger, Hidden Dragon
+Lawrence of Arabia
+Office Space
+
+SQL statements
+// get books that aren't check out
+SELECT title 
+FROM book 
+WHERE id NOT IN 
+(SELECT DISTINCT book_id FROM checkout_item WHERE book_id IS NOT NULL);
+> Fellowship of the Ring
+1984
+Tom Sawyer
+Catcher in the Rye
+To Kill a Mockingbird
+Domain Driven Design
+
+// get movies that aren't check out
+SELECT title 
+FROM movie 
+WHERE id NOT IN 
+(SELECT DISTINCT movie_id FROM checkout_item WHERE movie_id IS NOT null);
+> Thin Red Line
+Crouching Tiger, Hidden Dragon
+Lawrence of Arabia
+Office Space
+

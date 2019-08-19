@@ -1,0 +1,14 @@
+5. Who has checked out more than one item?
+Anand Beck
+Frank Smith
+
+SQL statements
+// get member name using relational tables and filter using count
+SELECT member.name, COUNT(*)
+FROM member, checkout_item
+WHERE member.id=checkout_item.member_id
+GROUP BY member.name
+HAVING COUNT(*) > 1;
+> Anand Beck|3
+Frank Smith|3 
+

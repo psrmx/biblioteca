@@ -1,0 +1,15 @@
+1. Who checked out the book 'The Hobbit’?
+Anand Beck
+
+SQL statements:
+// show column names and info
+SELECT sql FROM sqlite_master WHERE tbl_name="checkout_item" AND type="table";
+SELECT sql FROM sqlite_master WHERE tbl_name="book" AND type="table";
+SELECT sql FROM sqlite_master WHERE tbl_name="member" AND type="table";
+
+// get member name from relational tables  
+SELECT member.name 
+FROM member, checkout_item, book 
+WHERE book.id=checkout_item.book_id AND member.id=checkout_item.member_id AND  book.title="The Hobbit";
+> Anand Beck
+

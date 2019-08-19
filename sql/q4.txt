@@ -1,0 +1,18 @@
+4. Who checkout the book "The Pragmatic Programmer"? 
+Paola Suárez
+
+SQL statements
+// add "The Pragmatic Programmer" as a book
+INSERT INTO book (id, title) VALUES (11, "The Pragmatic Programmer");
+
+// add me as a member
+INSERT INTO member VALUES (43, "Paola Suárez");
+
+// check out the book
+INSERT INTO checkout_item VALUES (43, 11, null);
+
+// same query as q1
+SELECT member.name 
+FROM member, checkout_item, book 
+WHERE book.id=checkout_item.book_id AND member.id=checkout_item.member_id AND  book.title="The Pragmatic Programmer";
+> Paola Suárez

@@ -1,0 +1,11 @@
+2. How many people have not checked out anything?
+42 - 5 = 37
+
+SQL statements
+// no. of unique members that have checkout items
+SELECT COUNT(DISTINCT member_id) FROM checkout_item;
+> 5
+
+// no. of total members
+SELECT COUNT(DISTINCT id) FROM member;
+> 42

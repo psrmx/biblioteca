@@ -7,7 +7,7 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 
-public class BibliotecaTests {
+public class BibliotecaTest {
     // arrange objects
     private WelcomeMessage message = new WelcomeMessage();
     private Book b = new Book("B", "Tom", "1999");

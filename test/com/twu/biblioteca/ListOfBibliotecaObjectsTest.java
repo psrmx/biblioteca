@@ -8,7 +8,7 @@ import java.io.PrintStream;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
-public class ListOfBibliotecaObjectsTests {
+public class ListOfBibliotecaObjectsTest {
     public ListOfBibliotecaObjects books = new ListOfBibliotecaObjects("book");
     public ListOfBibliotecaObjects movies = new ListOfBibliotecaObjects("movie");
     public User user = new User("111-1111", "123password");

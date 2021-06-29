@@ -10,7 +10,7 @@ import java.io.PrintStream;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
-public class MainMenuTests {
+public class MainMenuTest {
     MainMenu menu = new MainMenu();
     private String expectedMenu =
             "Menu of options: \n" +

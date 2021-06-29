@@ -8,7 +8,7 @@ import java.io.PrintStream;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class LoginTests {
+public class LoginTest {
     @Test
     public void ShouldLoginUserWithCorrectCredentials() throws Exception {
         // if user exists
